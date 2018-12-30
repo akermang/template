@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 // import './App.css';
 import { fetchtData } from '../fetch-utils.js'
+import HttpService from "../services/http.service";
+import ApiService from "../services/api.service";
 
 class GalComponent extends Component {
     constructor(props) {
@@ -15,9 +17,14 @@ class GalComponent extends Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-        fetchtData()
+        // fetchtData()
+        //     .then(data => this.setState({ hits: data.hits, isLoading: false }))
+        //     .catch(error => this.setState({ error, isLoading: false }));
+        let options = ApiService.getOptions("fetchtData")
+        HttpService.fetch(options)
             .then(data => this.setState({ hits: data.hits, isLoading: false }))
             .catch(error => this.setState({ error, isLoading: false }));
+
     }
 
     render() {
