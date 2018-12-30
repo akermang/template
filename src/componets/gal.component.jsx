@@ -33,7 +33,6 @@ class GalComponent extends Component {
                                     className="App-link"
                                     target="_blank"
                                     rel="noopener noreferrer"
-
                                 >
                                     {hit.title}
                                 </a>
