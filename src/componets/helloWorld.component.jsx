@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const HelloWorld = ({name}) => (
- <div> {`Hello World And Hi ${name}`}</div>
+const HelloWorld = ({ name }) => (
+  <div className={"header-component"}> {`Hello World And Hi ${name}`}</div>
 );
 
 export default HelloWorld;
