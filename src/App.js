@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import GalComponent from './componets/gal.component.jsx';
+import MyComponent from './componets/My.component.jsx';
 import HelloWorld from './componets/helloWorld.component.jsx'
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
        <HelloWorld name="Gal A"/>
-       <GalComponent/>
+       <MyComponent/>
       </div>
     );
   }

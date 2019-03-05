@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
-// import './App.css';
-import { fetchtData } from '../fetch-utils.js'
-import HttpService from "../services/http.service";
-import ApiService from "../services/api.service";
+import { fetchtData } from '../services/Api.service.js'
 
-class GalComponent extends Component {
+class MyComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -17,20 +14,15 @@ class GalComponent extends Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-        // fetchtData()
-        //     .then(data => this.setState({ hits: data.hits, isLoading: false }))
-        //     .catch(error => this.setState({ error, isLoading: false }));
-        let options = ApiService.getOptions("fetchtData")
-        HttpService.fetch(options)
+        fetchtData()
             .then(data => this.setState({ hits: data.hits, isLoading: false }))
             .catch(error => this.setState({ error, isLoading: false }));
-
     }
 
     render() {
         const { hits, isLoading } = this.state;
         return (
-            <div className="gal">
+            <div className="container">
                 <header className="App-header">
                     {isLoading ? <img src={logo} className="App-logo" alt="logo" /> : null}
                     <ul>
@@ -52,4 +44,4 @@ class GalComponent extends Component {
     }
 }
 
-export default GalComponent;
+export default MyComponent;
