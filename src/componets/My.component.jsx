@@ -32,24 +32,23 @@ class MyComponent extends Component {
     return (
       <div className="container">
         <div className={"main-container"}>
-          {isLoading ? <div>Loading...</div> : null}
 
-          {!isLoading && (
-            <div>
-              <TextField
-                value={inputValue}
-                onChange={e => this.inputOnChange(e.target.value)}
-                placeholder="input"
-                autoFocus
-              />
-              <Button
-                style={{ background: "#d6dce6" }}
-                onClick={() => this.getData()}
-              >
-              search articles
-              </Button>
-            </div>
-          )}
+          <div>
+            <TextField
+              value={inputValue}
+              onChange={e => this.inputOnChange(e.target.value)}
+              placeholder="input"
+              autoFocus
+            />
+            <Button
+              style={{ background: "#d6dce6", marginLeft: "8px" }}
+              onClick={() => this.getData()}
+            >
+              search
+            </Button>
+          </div>
+          {isLoading ? <div className={"loader"}>Loading...</div> : null}
+
 
           <List>
             {hits.map(hit => (
