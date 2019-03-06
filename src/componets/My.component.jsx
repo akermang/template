@@ -3,6 +3,7 @@ import logo from "../logo.svg";
 import { fetchtData } from "../services/api.service.js";
 import { TextField } from "@material-ui/core";
 import { List, MenuItem, Button } from "@material-ui/core";
+import Icon from '@material-ui/core/Icon';
 
 class MyComponent extends Component {
   constructor(props) {
@@ -46,7 +47,8 @@ class MyComponent extends Component {
               autoFocus
             />
             <Button
-              style={{ background: "#d6dce6", marginLeft: "8px" }}
+              variant="outlined" color="primary"
+              style={{ marginLeft: "8px" }}
               onClick={() => this.getData(inputValue)}
             >
               search
