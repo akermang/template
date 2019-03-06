@@ -12,7 +12,6 @@ class MyComponent extends Component {
       inputValue: "",
       hits: []
     };
-    let timeoutId;
   }
 
   inputOnChange(value) {
