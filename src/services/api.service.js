@@ -2,11 +2,10 @@ import fetch from 'isomorphic-fetch';
 // import {polyfill} from 'es6-promise';
 
 // Gal's example //
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
+const API = 'https://hn.algolia.com/api/v1/search';
 
-export const fetchtData = () => {
-    return fetch(API + DEFAULT_QUERY)
+export const fetchtData = (query) => {
+    return fetch(API + query)
         .then(response => {
             if (response.ok) {
                 return response.json();
