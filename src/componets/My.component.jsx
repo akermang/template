@@ -15,13 +15,13 @@ class MyComponent extends Component {
   }
 
   inputOnChange(value) {
-    this.setState({ inputValue: value });
+    this.setState({ inputValue: value }, this.getData(value));
   }
 
-  getData() {
-    if (this.state.inputValue === "") return;
+  getData(value) {
+    if (value === "") return;
     this.setState({ isLoading: true });
-    let query = `?query=${this.state.inputValue}`;
+    let query = `?query=${value}`;
     fetchtData(query)
       .then(data => this.setState({ hits: data.hits, isLoading: false }))
       .catch(error => this.setState({ error, isLoading: false }));
@@ -42,7 +42,7 @@ class MyComponent extends Component {
             />
             <Button
               style={{ background: "#d6dce6", marginLeft: "8px" }}
-              onClick={() => this.getData()}
+              onClick={() => this.getData(inputValue)}
             >
               search
             </Button>
