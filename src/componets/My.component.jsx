@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "../logo.svg";
-import { fetchtData } from "../services/Api.service.js";
+import { fetchtData } from "../services/api.service.js";
 import { TextField } from "@material-ui/core";
 import { List, MenuItem, Button } from "@material-ui/core";
 
