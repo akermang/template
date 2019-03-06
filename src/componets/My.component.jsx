@@ -12,19 +12,26 @@ class MyComponent extends Component {
       inputValue: "",
       hits: []
     };
+    let timeoutId;
   }
 
   inputOnChange(value) {
     this.setState({ inputValue: value }, this.getData(value));
   }
 
-  getData(value) {
-    if (value === "") return;
+  startFetchData(query) {
     this.setState({ isLoading: true });
-    let query = `?query=${value}`;
     fetchtData(query)
       .then(data => this.setState({ hits: data.hits, isLoading: false }))
       .catch(error => this.setState({ error, isLoading: false }));
+  }
+
+  getData(value) {
+    clearTimeout(this.timeoutId);
+    this.setState({ isLoading: false });
+    if (value === "") return;
+    let query = `?query=${value}`;
+    this.timeoutId = setTimeout(this.startFetchData.bind(this, query), 500);
   }
 
   render() {
@@ -32,7 +39,6 @@ class MyComponent extends Component {
     return (
       <div className="container">
         <div className={"main-container"}>
-
           <div>
             <TextField
               value={inputValue}
@@ -48,7 +54,6 @@ class MyComponent extends Component {
             </Button>
           </div>
           {isLoading ? <div className={"loader"}>Loading...</div> : null}
-
 
           <List>
             {hits.map(hit => (
