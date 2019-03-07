@@ -43,7 +43,7 @@ class MyComponent extends Component {
             <TextField
               value={inputValue}
               onChange={e => this.inputOnChange(e.target.value)}
-              placeholder="input"
+              placeholder="Search..."
               autoFocus
             />
             <Button
