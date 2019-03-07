@@ -1,7 +1,7 @@
 import React from "react";
 
-const HelloWorld = ({ name }) => (
+const HeaderComponent = ({ name }) => (
   <div className={"header-component"}> {`Hello World And Hi ${name}`}</div>
 );
 
-export default HelloWorld;
+export default HeaderComponent;
